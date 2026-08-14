@@ -49,15 +49,8 @@ pnpm build
 `bootstrap:toolchain` verifies the host JDK archive and the exact Emsdk Git
 revision before installing Emscripten and running both native build recipes.
 Pass `--root=/path/on/a/large/disk` to keep the toolchain outside the repository
-cache. The equivalent manual sequence:
-
-```sh
-pnpm install
-source .cache/emsdk/emsdk_env.sh
-pnpm build:runtime
-TRACEJVM_JAVA23_HOME=/path/to/jdk-23 pnpm build:teavm-javac
-pnpm build
-```
+cache. It prints the actual Emsdk and JDK locations it used; do not assume a
+fixed cache path when running the lower-level build recipes directly.
 
 `runtime/assets` and `.cache/teavm-javac/artifacts` are generated build inputs
 and intentionally not committed. The derived, content-addressed

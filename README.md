@@ -29,7 +29,7 @@ stdin. OS processes, unrestricted files, and unrestricted networking do not
 exist in a browser tab: supply a host adapter or those calls fail loudly rather
 than as silent no-ops. And TraceJVM is a library, not a multi-tenant sandbox —
 authorization and Worker policy are yours. Full contract:
-[docs/supported-profile.md](docs/supported-profile.md).
+[supported profile](https://github.com/tracecodeapp/tracejvm/blob/main/docs/supported-profile.md).
 
 ## Install
 
@@ -57,16 +57,16 @@ const result = await runner.run({
 
 First you expand the runtime archive onto your own origin and pin its manifest,
 and real applications put both objects in Workers.
-**[docs/getting-started.md](docs/getting-started.md) is the complete recipe** —
-extraction, a working example, response headers, Worker topology. Start there.
+**[Getting started](https://github.com/tracecodeapp/tracejvm/blob/main/docs/getting-started.md)
+is the complete recipe** — extraction, a working example, response headers,
+Worker topology. Start there.
 
 ## Status and safety
 
 TraceJVM 0.4 is **pre-release**. Public APIs and runtime profiles may change
 between minor releases. Compatibility is measured rather than claimed: known
-gaps stay visible in the reports, and
-[docs/release-readiness.md](docs/release-readiness.md) has the evidence and the
-remaining blockers.
+gaps stay visible in the reports, and [release readiness](https://github.com/tracecodeapp/tracejvm/blob/main/docs/release-readiness.md)
+has the evidence and the remaining blockers.
 
 Two things to get right when you deploy. Build your asset integrity map from
 the manifest inside the package, never one fetched at runtime: a manifest
@@ -76,18 +76,13 @@ synchronous host bridge uses a `SharedArrayBuffer`.
 
 ## Documentation
 
-- [docs/getting-started.md](docs/getting-started.md) — self-hosting, compiling,
-  running, Workers.
-- [docs/supported-profile.md](docs/supported-profile.md) — the compatibility
-  contract.
-- [docs/architecture.md](docs/architecture.md) — boundaries, Effect surface,
-  isolation internals.
-- [docs/embedding.md](docs/embedding.md) — host adapters and TraceKernel.
-- [docs/runtime-profiles.md](docs/runtime-profiles.md) — size and memory.
-- [compatibility/openjdk/README.md](compatibility/openjdk/README.md) — how
-  results are classified.
-- [CONTRIBUTING.md](CONTRIBUTING.md) building · [SUPPORT.md](SUPPORT.md) asking
-  · [SECURITY.md](SECURITY.md) reporting.
+- [Getting started](https://github.com/tracecodeapp/tracejvm/blob/main/docs/getting-started.md) — self-hosting, compiling, running, Workers.
+- [Supported profile](https://github.com/tracecodeapp/tracejvm/blob/main/docs/supported-profile.md) — the compatibility contract.
+- [Architecture](https://github.com/tracecodeapp/tracejvm/blob/main/docs/architecture.md) — boundaries, Effect surface, isolation internals.
+- [Embedding](https://github.com/tracecodeapp/tracejvm/blob/main/docs/embedding.md) — host adapters and TraceKernel.
+- [Runtime profiles](https://github.com/tracecodeapp/tracejvm/blob/main/docs/runtime-profiles.md) — size and memory.
+- [OpenJDK compatibility](https://github.com/tracecodeapp/tracejvm/blob/main/compatibility/openjdk/README.md) — how results are classified.
+- [Contributing](https://github.com/tracecodeapp/tracejvm/blob/main/CONTRIBUTING.md) · [support](https://github.com/tracecodeapp/tracejvm/blob/main/SUPPORT.md) · [security](https://github.com/tracecodeapp/tracejvm/blob/main/SECURITY.md).
 
 ## License and attribution
 
@@ -103,5 +98,5 @@ MIT. The npm runtime archive carries the required license and notice files but
 omits the much larger corresponding-source archives; those ship in the matching
 complete hosted release described by `release.json`. Read
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and
-[legal/CORRESPONDING_SOURCE.md](legal/CORRESPONDING_SOURCE.md) before
+[corresponding-source guide](https://github.com/tracecodeapp/tracejvm/blob/main/legal/CORRESPONDING_SOURCE.md) before
 redistributing the runtime.

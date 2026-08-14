@@ -162,6 +162,17 @@ immutable-caching headers recorded in `release.json`, the contract written by
 `pnpm check:runtime-release` downloads it and checks the response headers as
 well as the bytes.
 
+The `browser-worker.js` entrypoint also needs the two values under
+`responsePolicy.worker` in that descriptor:
+
+```http
+Cross-Origin-Embedder-Policy: require-corp
+Content-Security-Policy: default-src 'none'; script-src 'self' data:; connect-src 'self'
+```
+
+Read these values from `release.json` when configuring a deployment rather than
+maintaining a separate copy.
+
 Any page that supplies a host adapter must be cross-origin isolated:
 
 ```http

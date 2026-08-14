@@ -91,13 +91,13 @@
     "prepublishOnly": "pnpm release:check"
   },
   "devDependencies": {
-    "@types/node": "^22.0.0",
-    "esbuild": "0.27.3",
+    "@types/node": "^26.2.0",
+    "esbuild": "0.28.2",
     "playwright": "^1.53.2",
     "tsup": "^8.5.0",
     "tsx": "^4.20.6",
-    "typescript": "^5.8.2",
-    "wrangler": "4.113.0"
+    "typescript": "^7.0.2",
+    "wrangler": "4.120.1"
   },
   "engines": {
     "node": ">=22.15.0"

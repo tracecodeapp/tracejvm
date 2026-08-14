@@ -3,14 +3,28 @@
 TraceJVM is pre-release software. Public APIs and runtime profiles may change
 between minor releases.
 
-- Use GitHub Issues for reproducible bugs and narrowly scoped feature requests.
-- Include the TraceJVM package version, runtime release ID, browser and version,
-  minimal source or classpath input, and observed output.
-- Use repository documentation for build and self-hosting questions. TraceJVM
-  does not operate a shared public runtime CDN; embedders host the immutable
-  package-owned assets at an origin they control.
-- Do not disclose suspected vulnerabilities in a public issue. Use GitHub's
-  private vulnerability-reporting flow after the repository security policy is
-  approved and published.
+## Questions about using or self-hosting TraceJVM
 
-There is currently no guaranteed response time or commercial support SLA.
+Start with [README.md](README.md) and the documents it links to. One thing that
+surprises people: TraceJVM operates no shared public runtime CDN. You host the
+immutable, package-owned assets at an origin you control.
+
+## Bugs and feature requests
+
+Open a [GitHub issue](https://github.com/tracecodeapp/tracejvm/issues) for
+reproducible bugs and narrowly scoped feature requests. Include:
+
+- the TraceJVM package version and runtime release ID
+- the browser and its version
+- the minimal source or classpath that reproduces the problem
+- what you expected and what you actually got
+
+## Security issues
+
+Do not put vulnerability details in a public issue. Follow
+[SECURITY.md](SECURITY.md), which uses GitHub's private vulnerability reporting.
+
+## What to expect
+
+This is a pre-release project with no guaranteed response time and no commercial
+support SLA.

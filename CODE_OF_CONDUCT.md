@@ -1,19 +1,31 @@
 # Code of Conduct
 
-We are committed to a respectful, harassment-free project for everyone.
-Contributors must communicate constructively, respect differing experience and
-viewpoints, accept responsibility for mistakes, and focus criticism on the
-work rather than the person.
+This project should be a respectful, harassment-free place to work for
+everyone.
+
+## Expected behavior
+
+Communicate constructively. Respect people with different experience and
+viewpoints. Take responsibility for your mistakes. Aim criticism at the work,
+not the person.
+
+## Unacceptable behavior
 
 Harassment, threats, discriminatory language, sexualized conduct, deliberate
-intimidation, and publishing another person's private information are not
-acceptable in project spaces.
+intimidation, and publishing someone's private information are not acceptable
+in project spaces.
 
-Report conduct concerns through GitHub's private vulnerability-reporting form
-and begin the report title with `Code of Conduct`. Maintainers may edit or
-remove contributions, comments, issues, or other participation that violates
-this policy, and may temporarily or permanently restrict participation. Reports
-will be handled as confidentially as practical and without retaliation.
+## Reporting
 
-This policy applies in repository spaces and when someone represents the
-project in public.
+Report conduct concerns through GitHub's [private
+reporting form](https://github.com/tracecodeapp/tracejvm/security/advisories/new)
+and start the title with `Code of Conduct`. Reports are handled as
+confidentially as practical and without retaliation.
+
+Maintainers may edit or remove contributions that violate this policy, and may
+restrict participation temporarily or permanently.
+
+## Scope
+
+This policy applies in repository spaces and whenever someone is representing
+the project in public.

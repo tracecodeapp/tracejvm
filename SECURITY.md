@@ -1,40 +1,49 @@
 # Security Policy
 
-## Reporting
+## Reporting a vulnerability
 
-Report suspected vulnerabilities through GitHub private vulnerability
-reporting. Do not open a public issue containing vulnerability details.
+Use GitHub's [private vulnerability
+reporting](https://github.com/tracecodeapp/tracejvm/security/advisories/new).
+Do not open a public issue containing vulnerability details.
 
-## Supported Versions
+## Supported versions
 
 Security fixes target the latest pre-release version and its immutable runtime
 release.
 
-## System and Scope
+## What is in scope
 
 TraceJVM compiles and runs attacker-controlled Java source, classfiles, JARs,
-arguments, and process files inside browser Workers. Covered surfaces include
-native parsers, virtual filesystem cleanup, compiler/runner separation, host
-channels, descriptor capabilities, release tooling, and executable assets.
+arguments, and process files inside browser Workers. In scope: native parsers,
+virtual filesystem cleanup, compiler/runner separation, host channels,
+descriptor capabilities, release tooling, and executable assets.
 
-## Threat Model and Security Invariants
+## Threat model and invariants
 
-- Java inputs, archives, paths, host requests, manifests, and remote assets may
-  be attacker-controlled.
-- Parsing, decompression, input, output, and host-call resource use must remain
+Assume Java inputs, archives, paths, host requests, manifests, and remote assets
+may all be attacker-controlled. The following must hold:
+
+- Parsing, decompression, input, output, and host-call resource use stay
   bounded.
-- Runtime and TraceKernel files must not be overwritten through path aliases or
+- Runtime and TraceKernel files cannot be overwritten through path aliases or
   cleanup traversal.
-- Host descriptors and asynchronous calls must remain bound to their originating
-  JVM context.
-- Executable JavaScript, Wasm, and runtime archives must match pinned size and
-  SHA-256 metadata before use.
-- Worker disposal must remain the hard failure and cancellation boundary.
+- Host descriptors and asynchronous calls stay bound to the JVM context that
+  originated them.
+- Executable JavaScript, Wasm, and runtime archives match their pinned size and
+  SHA-256 before use.
+- Worker disposal remains the hard failure and cancellation boundary.
 
-## Out of Scope and Known Limitations
+A report that breaks one of these invariants is a security issue.
 
-TraceJVM is a library, not a complete multi-tenant security sandbox. Embedders
-own host-adapter authorization, browser headers, Worker retirement, and
-self-hosted asset delivery. The asset manifest is a trust anchor and must be
-obtained through a trusted package or deployment channel. Java compatibility
-defects without a security-boundary impact are ordinary bugs.
+## What is out of scope
+
+TraceJVM is a library, not a complete multi-tenant security sandbox. As the
+embedder, you own host-adapter authorization, browser response headers, Worker
+retirement, and delivery of your self-hosted assets.
+
+The asset manifest is a trust anchor, so it must reach you through a trusted
+package or deployment channel. Fetching it from the same mutable origin that
+serves the assets defeats the purpose, and is not a TraceJVM vulnerability.
+
+Java compatibility defects with no security-boundary impact are ordinary bugs.
+Report those as issues.

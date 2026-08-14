@@ -241,7 +241,9 @@ Eclipse Temurin runtime images and the compiler built from OpenJDK sources are
 GPLv2 with the Classpath Exception;
 [b-jvm](https://github.com/anematode/b-jvm), which the runner derives from, is
 MIT; TeaVM-javac is Apache 2.0, with TraceJVM's modifications recorded in
-`compiler/teavm-javac/NOTICE`; Effect is MIT. Every immutable runtime release
-ships the complete corresponding source for its OpenJDK-derived artifacts. See
-[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and
-[legal/CORRESPONDING_SOURCE.md](legal/CORRESPONDING_SOURCE.md).
+`compiler/teavm-javac/NOTICE`; Effect is MIT. The npm runtime archive carries
+the required license and notice files, but omits the much larger corresponding-
+source archives. Those ship in the matching complete hosted release described
+by `release.json`. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and
+[legal/CORRESPONDING_SOURCE.md](legal/CORRESPONDING_SOURCE.md) before
+redistributing the runtime.

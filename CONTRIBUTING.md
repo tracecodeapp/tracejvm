@@ -96,18 +96,20 @@ changes.
 
 ```sh
 pnpm prepare:runtime-release
+pnpm prepare:package-runtime
 pnpm release:check
 npm publish
 ```
 
-`prepare:runtime-release` writes `release.json` — the engine release contract —
-and the package's `runtime-release/manifest.json`. Between them they record
-every payload path, byte size, SHA-256 digest, SRI value, content type, cache
-policy, runtime profile, and browser entrypoint. The content hash derives from
-the payload tree, so identical inputs produce an identical prefix and
-descriptor, and an existing archive is reused when no runtime byte changed.
-Preparation fails if the corresponding OpenJDK and TeaVM-javac source archives
-are absent or do not match their pinned checksums.
+`prepare:runtime-release` writes `release.json`, the complete hosted-release
+contract. `prepare:package-runtime` then writes the tracked npm manifest and
+archive from those same verified bytes. Between them they record every payload
+path, byte size, SHA-256 digest, SRI value, content type, cache policy, runtime
+profile, and browser entrypoint. The content hash derives from the payload tree,
+so identical inputs produce an identical prefix and descriptor, and an existing
+archive is reused when no runtime byte changed. Preparation fails if the
+corresponding OpenJDK and TeaVM-javac source archives are absent or do not match
+their pinned checksums.
 
 `pnpm release:check` is a clean-checkout verification path: it never rebuilds or
 replaces the candidate it is checking. `pnpm materialize:package-runtime` is the

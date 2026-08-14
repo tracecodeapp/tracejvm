@@ -1,0 +1,22 @@
+TeaVM-javac
+============
+
+TraceJVM's browser compiler is built from TeaVM-javac:
+
+  https://github.com/konsoletyper/teavm-javac
+
+Pinned upstream commit:
+
+  7e4a44cf521694a4e326e33850dd8aec165eb5c9
+
+TeaVM-javac is licensed under the Apache License, Version 2.0.
+
+TeaVM-javac uses components from the OpenJDK project, licensed under the GNU
+General Public License, version 2, with the Classpath Exception. TraceJVM builds
+the compiler against the pinned OpenJDK 23.0.2+7 source revision recorded in
+compiler/teavm-javac/manifest.json.
+
+TraceJVM changes TeaVM-javac to support its reproducible JDK 23 build,
+nested source paths, and an explicit platform archive. The exact changed files,
+patches, and checksums are recorded in compiler/teavm-javac/manifest.json and
+compiler/teavm-javac/patches/.

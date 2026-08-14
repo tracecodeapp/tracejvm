@@ -1,0 +1,14 @@
+diff --git a/compiler/src/main/java/org/teavm/javac/FileData.java b/compiler/src/main/java/org/teavm/javac/FileData.java
+index da73342..07670de 100644
+--- a/compiler/src/main/java/org/teavm/javac/FileData.java
++++ b/compiler/src/main/java/org/teavm/javac/FileData.java
+@@ -52,7 +52,8 @@ class FileData implements JavaFileObject {
+ 
+     @Override
+     public boolean isNameCompatible(String simpleName, Kind kind) {
+-        return path.equals(simpleName.replace('.', '/') + kind.extension);
++        var expected = simpleName.replace('.', '/') + kind.extension;
++        return path.equals(expected) || path.endsWith("/" + expected);
+     }
+ 
+     @Override

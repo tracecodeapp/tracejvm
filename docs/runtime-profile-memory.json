@@ -1,0 +1,212 @@
+{
+  "schema": "tracejvm.runtime-profile-memory.v1",
+  "measuredAt": "2026-07-23T17:42:47.276Z",
+  "host": "Chromium process RSS reported through CDP plus ps",
+  "configuredHeapBytes": 67108864,
+  "profiles": {
+    "core": {
+      "initialize": {
+        "initializeMs": 253.25
+      },
+      "result": {
+        "status": "completed",
+        "totalMs": 2684.7899999916553
+      },
+      "runtimeIncrementOverPageBytes": 212631552,
+      "peakIncrementOverPageBytes": 271089664,
+      "warmIncrementOverPageBytes": 271351808,
+      "retainedAfterTerminationOverPageBytes": 81002496,
+      "snapshots": {
+        "baseline": {
+          "totalBytes": 138887168,
+          "byType": {
+            "browser": 68681728,
+            "GPU": 32571392,
+            "network.mojom.NetworkService": 37634048
+          }
+        },
+        "pageReady": {
+          "totalBytes": 293240832,
+          "byType": {
+            "browser": 86163456,
+            "renderer": 97288192,
+            "GPU": 66945024,
+            "network.mojom.NetworkService": 42844160
+          }
+        },
+        "runtimeReady": {
+          "totalBytes": 505872384,
+          "byType": {
+            "browser": 86982656,
+            "renderer": 308576256,
+            "GPU": 66928640,
+            "network.mojom.NetworkService": 43384832
+          }
+        },
+        "peak": {
+          "totalBytes": 564330496,
+          "byType": {
+            "browser": 87212032,
+            "renderer": 366444544,
+            "GPU": 66928640,
+            "network.mojom.NetworkService": 43745280
+          }
+        },
+        "warm": {
+          "totalBytes": 564592640,
+          "byType": {
+            "browser": 87277568,
+            "renderer": 366444544,
+            "GPU": 66928640,
+            "network.mojom.NetworkService": 43941888
+          }
+        },
+        "afterTermination": {
+          "totalBytes": 374243328,
+          "byType": {
+            "browser": 88391680,
+            "renderer": 174735360,
+            "GPU": 66928640,
+            "network.mojom.NetworkService": 44187648
+          }
+        }
+      }
+    },
+    "server": {
+      "initialize": {
+        "initializeMs": 291.96000000834465
+      },
+      "result": {
+        "status": "completed",
+        "totalMs": 2654.800000011921
+      },
+      "runtimeIncrementOverPageBytes": 219480064,
+      "peakIncrementOverPageBytes": 321372160,
+      "warmIncrementOverPageBytes": 321372160,
+      "retainedAfterTerminationOverPageBytes": 126074880,
+      "snapshots": {
+        "baseline": {
+          "totalBytes": 161611776,
+          "byType": {
+            "browser": 69910528,
+            "GPU": 54001664,
+            "network.mojom.NetworkService": 37699584
+          }
+        },
+        "pageReady": {
+          "totalBytes": 292405248,
+          "byType": {
+            "browser": 86458368,
+            "renderer": 96043008,
+            "GPU": 66994176,
+            "network.mojom.NetworkService": 42909696
+          }
+        },
+        "runtimeReady": {
+          "totalBytes": 511885312,
+          "byType": {
+            "browser": 88375296,
+            "renderer": 312852480,
+            "GPU": 66977792,
+            "network.mojom.NetworkService": 43679744
+          }
+        },
+        "peak": {
+          "totalBytes": 613777408,
+          "byType": {
+            "browser": 88621056,
+            "renderer": 414138368,
+            "GPU": 66977792,
+            "network.mojom.NetworkService": 44040192
+          }
+        },
+        "warm": {
+          "totalBytes": 613777408,
+          "byType": {
+            "browser": 88621056,
+            "renderer": 414138368,
+            "GPU": 66977792,
+            "network.mojom.NetworkService": 44040192
+          }
+        },
+        "afterTermination": {
+          "totalBytes": 418480128,
+          "byType": {
+            "browser": 88555520,
+            "renderer": 218808320,
+            "GPU": 66977792,
+            "network.mojom.NetworkService": 44138496
+          }
+        }
+      }
+    },
+    "spring-server": {
+      "initialize": {
+        "initializeMs": 472.41499999165535
+      },
+      "result": {
+        "status": "completed",
+        "totalMs": 2836.4000000059605
+      },
+      "runtimeIncrementOverPageBytes": 281968640,
+      "peakIncrementOverPageBytes": 382533632,
+      "warmIncrementOverPageBytes": 382533632,
+      "retainedAfterTerminationOverPageBytes": 155844608,
+      "snapshots": {
+        "baseline": {
+          "totalBytes": 95780864,
+          "byType": {
+            "browser": 68141056,
+            "GPU": 14385152,
+            "network.mojom.NetworkService": 13254656
+          }
+        },
+        "pageReady": {
+          "totalBytes": 292192256,
+          "byType": {
+            "browser": 86523904,
+            "renderer": 95764480,
+            "GPU": 67043328,
+            "network.mojom.NetworkService": 42860544
+          }
+        },
+        "runtimeReady": {
+          "totalBytes": 574160896,
+          "byType": {
+            "browser": 88506368,
+            "renderer": 374964224,
+            "GPU": 67026944,
+            "network.mojom.NetworkService": 43663360
+          }
+        },
+        "peak": {
+          "totalBytes": 674725888,
+          "byType": {
+            "browser": 88539136,
+            "renderer": 475168768,
+            "GPU": 67026944,
+            "network.mojom.NetworkService": 43991040
+          }
+        },
+        "warm": {
+          "totalBytes": 674725888,
+          "byType": {
+            "browser": 88539136,
+            "renderer": 475168768,
+            "GPU": 67026944,
+            "network.mojom.NetworkService": 43991040
+          }
+        },
+        "afterTermination": {
+          "totalBytes": 448036864,
+          "byType": {
+            "browser": 88539136,
+            "renderer": 248381440,
+            "GPU": 67026944,
+            "network.mojom.NetworkService": 44089344
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "upstream": {
+    "repository": "https://github.com/openjdk/jdk23u.git",
+    "tag": "jdk-23.0.2+7",
+    "commit": "a13b02ce6f8545b9fce1263f0b5a219b55fb2522"
+  },
+  "suite": "jdk",
+  "tests": [
+    {
+      "path": "java/lang/AssertionError/Cause.java",
+      "mainClass": "Cause",
+      "sha256": "16cfc6123b5686a20b435770bae54090676cddc4adc31b1a319d97443194304a"
+    },
+    {
+      "path": "java/lang/Boolean/ParseBoolean.java",
+      "mainClass": "ParseBoolean",
+      "sha256": "009e704c7daea44b3351f1f5832f806e49a9243e9dcba8a7e7dac9b0451b370a"
+    },
+    {
+      "path": "java/lang/Byte/Decode.java",
+      "mainClass": "Decode",
+      "sha256": "81e8e872077548d36399d3fdc9c065cbe4f20583df5a81b244d003d23c6582d6"
+    },
+    {
+      "path": "java/lang/Class/Cast.java",
+      "mainClass": "Cast",
+      "sha256": "db5ae4e79a4f0137c0995ef054cf6ed4f7d99c9fc5e4650a3536fbba79464c53"
+    },
+    {
+      "path": "java/lang/Enum/ValueOf.java",
+      "mainClass": "ValueOf",
+      "sha256": "a8b9512d110c9007088ed833d6c14f3c1c40eb2519fcfdf195c82a2237edb2f0"
+    },
+    {
+      "path": "java/lang/Integer/ParsingTest.java",
+      "mainClass": "ParsingTest",
+      "sha256": "b3b9d63b9c3e004ed1f3ca3f56510e5d5746e5d864e8b050f71e41f03e4540ae"
+    },
+    {
+      "path": "java/lang/Long/Decode.java",
+      "mainClass": "Decode",
+      "sha256": "ed7aca8fe8beef2dff170664d457f87be73975e075785a9b503993bdda94f525"
+    },
+    {
+      "path": "java/lang/annotation/repeatingAnnotations/InheritedAssociatedAnnotations.java",
+      "mainClass": "InheritedAssociatedAnnotations",
+      "sha256": "21b592724a804b0c3c5c3c73b9b508b71e6aa556f9da6bce23ce76bd31cedb2a"
+    },
+    {
+      "path": "java/lang/invoke/StringConcatFactory/BasicTest.java",
+      "mainClass": "BasicTest",
+      "sha256": "9156c2312242e6d84bb025569ed4c4358b0e8c744ff3fb135fae1c4f02d2e84b"
+    },
+    {
+      "path": "java/lang/ref/ReferenceEnqueue.java",
+      "mainClass": "ReferenceEnqueue",
+      "sha256": "5f12326e721202f218caf7d2d58e39427a3f5fe6a1574eabd55aea2d87a31dbe"
+    },
+    {
+      "path": "java/lang/reflect/Method/InterfaceStatic/StaticInterfaceMethodInWayOfDefault.java",
+      "mainClass": "StaticInterfaceMethodInWayOfDefault",
+      "sha256": "bc12983ceaeda056dc773e06f9b17d2e4700968612db2b38e572fdd0f5fd08ed"
+    },
+    {
+      "path": "java/lang/reflect/Proxy/Boxing.java",
+      "mainClass": "Boxing",
+      "sha256": "2b79aaf4cb15b8f7dc2ae17f84b05321c973e63f0a2045855cebe51d65914f4f"
+    },
+    {
+      "path": "java/io/FileDescriptor/RememberAppend.java",
+      "mainClass": "RememberAppend",
+      "sha256": "653e4895b2c9cf80228431b8d0b9c0bd7a12408cbaea94f294f47545cdb1a707"
+    }
+  ]
+}

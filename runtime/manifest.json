@@ -1,0 +1,85 @@
+{
+  "javaVersion": "23.0.2+7",
+  "distribution": "Eclipse Temurin",
+  "distributionRepository": "https://github.com/adoptium/temurin23-binaries",
+  "linuxX64Archive": "OpenJDK23U-jdk_x64_linux_hotspot_23.0.2_7.tar.gz",
+  "linuxX64Sha256": "870ac8c05c6fe563e7a3878a47d0234b83c050e83651d2c47e8b822ec74512dd",
+  "source": {
+    "repository": "https://github.com/adoptium/jdk23u",
+    "revision": "ff87e76b386d3f67234ccafc65049b155645ce85",
+    "archiveUrl": "https://github.com/adoptium/jdk23u/archive/ff87e76b386d3f67234ccafc65049b155645ce85.tar.gz",
+    "archiveSha256": "30dc54abfa5267b11d087aca24c8c3d94fa8e1f63059fa999b92142bfce767db"
+  },
+  "emscriptenVersion": "4.0.2",
+  "buildTools": {
+    "emsdk": {
+      "repository": "https://github.com/emscripten-core/emsdk.git",
+      "revision": "e7479a395086caebaf4e8d9d974858241c4442d7",
+      "version": "4.0.2"
+    },
+    "hostJdk": {
+      "version": "23.0.2+7",
+      "release": "jdk-23.0.2%2B7",
+      "platforms": {
+        "darwin-arm64": {
+          "archive": "OpenJDK23U-jdk_aarch64_mac_hotspot_23.0.2_7.tar.gz",
+          "url": "https://github.com/adoptium/temurin23-binaries/releases/download/jdk-23.0.2%2B7/OpenJDK23U-jdk_aarch64_mac_hotspot_23.0.2_7.tar.gz",
+          "sha256": "749993e751f085c7ae713140066a90800075e4aeedfac50a5ed0c5457131c5a0"
+        },
+        "darwin-x64": {
+          "archive": "OpenJDK23U-jdk_x64_mac_hotspot_23.0.2_7.tar.gz",
+          "url": "https://github.com/adoptium/temurin23-binaries/releases/download/jdk-23.0.2%2B7/OpenJDK23U-jdk_x64_mac_hotspot_23.0.2_7.tar.gz",
+          "sha256": "97fca2e90668351f248f149d4e96e16875094eba6716a8dd1dcf163be9e19085"
+        },
+        "linux-arm64": {
+          "archive": "OpenJDK23U-jdk_aarch64_linux_hotspot_23.0.2_7.tar.gz",
+          "url": "https://github.com/adoptium/temurin23-binaries/releases/download/jdk-23.0.2%2B7/OpenJDK23U-jdk_aarch64_linux_hotspot_23.0.2_7.tar.gz",
+          "sha256": "fb43ae1202402842559cb6223886ec1663b90ffbec48479abbcb92c92c9012eb"
+        },
+        "linux-x64": {
+          "archive": "OpenJDK23U-jdk_x64_linux_hotspot_23.0.2_7.tar.gz",
+          "url": "https://github.com/adoptium/temurin23-binaries/releases/download/jdk-23.0.2%2B7/OpenJDK23U-jdk_x64_linux_hotspot_23.0.2_7.tar.gz",
+          "sha256": "870ac8c05c6fe563e7a3878a47d0234b83c050e83651d2c47e8b822ec74512dd"
+        }
+      }
+    }
+  },
+  "profiles": {
+    "core": ["java.base"],
+    "server": [
+      "java.base",
+      "java.instrument",
+      "java.logging",
+      "java.management",
+      "java.naming",
+      "java.net.http",
+      "java.security.sasl",
+      "java.sql",
+      "java.transaction.xa",
+      "java.xml",
+      "jdk.httpserver",
+      "jdk.management",
+      "jdk.unsupported",
+      "jdk.zipfs"
+    ],
+    "spring-server": [
+      "java.base",
+      "java.datatransfer",
+      "java.desktop",
+      "java.instrument",
+      "java.logging",
+      "java.management",
+      "java.naming",
+      "java.net.http",
+      "java.prefs",
+      "java.security.sasl",
+      "java.sql",
+      "java.transaction.xa",
+      "java.xml",
+      "jdk.httpserver",
+      "jdk.management",
+      "jdk.unsupported",
+      "jdk.zipfs"
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+# Preserve generated compiler glue and byte-verified upstream legal material.
+# Their exact bytes participate in the immutable runtime release identity.
+engine/bjvm/build/bjvm_main.js -whitespace
+runtime-release/** -whitespace

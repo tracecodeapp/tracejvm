@@ -1,0 +1,51 @@
+{
+  "schema": "tracejvm.teavm-javac-source.v1",
+  "upstream": {
+    "repository": "https://github.com/konsoletyper/teavm-javac",
+    "commit": "7e4a44cf521694a4e326e33850dd8aec165eb5c9",
+    "archiveUrl": "https://github.com/konsoletyper/teavm-javac/archive/7e4a44cf521694a4e326e33850dd8aec165eb5c9.tar.gz",
+    "archiveSha256": "29bfb6e2b6c1669972846794af4285d913faf720af74f2c8fcac758a5433c61c",
+    "license": "Apache-2.0"
+  },
+  "overlay": {
+    "version": 3,
+    "patches": [
+      {
+        "path": "patches/0001-configurable-jdk-build.patch",
+        "sha256": "1f6ecb86572ea11172a8ce98781679ff9c38f9c65a33d55d8899e6ec2f9f4646"
+      },
+      {
+        "path": "patches/0002-nested-source-paths.patch",
+        "sha256": "ce29fe3d3117746305a30f574650775275a3b7d11fc1df8b9bd7eb32a657ba92"
+      },
+      {
+        "path": "patches/0003-platform-archive.patch",
+        "sha256": "a571727e2a115f2d7ffb6af93592cd5c63aac68012be3712135a5b4bd9a448db"
+      }
+    ],
+    "patchedFiles": {
+      "compiler/build.gradle": "4da3057f9f940856d256cc5e68d4083831c24ad14487a90080620d1563f54f1e",
+      "compiler/src/main/java/org/teavm/javac/Compiler.java": "3abc53fd39d6c7929a59e7cf39a02003861043c82550b35cf6df5c75fb31ed91",
+      "compiler/src/main/java/org/teavm/javac/FileData.java": "d4ba43172f26b707a64858e60a642652fd45aea18847205c85128b26598507c0",
+      "javac/build.gradle": "f70ae51fcf1551bf96d21a925aa6391e2c2b8ac05f69429e3e7e428fb3bdea48",
+      "settings.gradle": "8e7a9e72c518b3abb09ceb454d8908e767d4e9728c9240629c3378122440d90a"
+    }
+  },
+  "jdk": {
+    "feature": 23,
+    "version": "23.0.2+7",
+    "repository": "jdk23u",
+    "archiveRoot": "jdk23u",
+    "revision": "a13b02ce6f8545b9fce1263f0b5a219b55fb2522",
+    "archiveUrl": "https://github.com/openjdk/jdk23u/archive/a13b02ce6f8545b9fce1263f0b5a219b55fb2522.zip",
+    "archiveSha256": "9279fb05f1bd098c5fad16a11e849121f584ed60ae6d8f4afb8edc1bd19780a1",
+    "classFileMajor": 67
+  },
+  "artifacts": [
+    "compiler.wasm",
+    "compiler.wasm-runtime.js",
+    "compiler.wasm-deobfuscator.wasm",
+    "compiler.wasm.teadbg",
+    "compile-classlib-teavm.bin"
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "name": "@tracecode/tracejvm",
+  "version": "0.4.2",
+  "description": "A browser-native Java 23 virtual machine.",
+  "keywords": [
+    "java",
+    "jvm",
+    "webassembly",
+    "wasm",
+    "browser",
+    "openjdk"
+  ],
+  "license": "AGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tracecodeapp/tracejvm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tracecodeapp/tracejvm/issues"
+  },
+  "homepage": "https://github.com/tracecodeapp/tracejvm#readme",
+  "type": "module",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "runtime-release/manifest.json",
+    "runtime-release/*.tar.zst",
+    "runtime-package-archive.mjs",
+    "runtime-package-archive.d.mts",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./browser": "./dist/browser-client.js",
+    "./worker": "./dist/browser-worker.js",
+    "./worker-protocol": {
+      "types": "./dist/worker-protocol.d.ts",
+      "import": "./dist/worker-protocol.js"
+    },
+    "./runtime-package": {
+      "types": "./runtime-package-archive.d.mts",
+      "import": "./runtime-package-archive.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "pnpm build:library && pnpm build:browser-client && pnpm build:worker",
+    "build:library": "tsup src/index.ts src/worker-protocol.ts --format esm --dts --clean",
+    "build:browser-client": "esbuild src/index.ts --bundle --format=esm --platform=browser --target=es2022 --outfile=dist/browser-client.js",
+    "build:worker": "esbuild src/browser-worker.ts --bundle --format=esm --platform=browser --target=es2022 --alias:@b-jvm/bjvm2=./engine/bjvm/js/bjvm2.ts --outfile=dist/browser-worker.js",
+    "build:test-browser": "esbuild tests/browser/app.ts --bundle --format=esm --platform=browser --target=es2022 --outfile=tests/browser/app.js",
+    "build:runtime": "bash scripts/build-runtime.sh",
+    "build:teavm-javac": "bash scripts/build-teavm-javac.sh",
+    "bootstrap:toolchain": "node scripts/bootstrap-toolchain.mjs",
+    "prepare:runtime-release": "pnpm build && pnpm verify:runtime-assets && node scripts/prepare-runtime-release.mjs",
+    "prepare:package-runtime": "node scripts/prepare-package-runtime.mjs",
+    "materialize:package-runtime": "node scripts/materialize-package-runtime.mjs",
+    "materialize:test-fixtures": "node scripts/materialize-test-fixtures.mjs",
+    "upload:runtime-release": "pnpm prepare:runtime-release && node scripts/upload-runtime-release.mjs",
+    "check:runtime-release": "node scripts/check-runtime-release.mjs",
+    "deploy:runtime-release": "pnpm upload:runtime-release && pnpm check:runtime-release",
+    "release:check": "pnpm test && pnpm build && pnpm verify:package && pnpm materialize:package-runtime && pnpm verify:runtime-assets && pnpm verify:teavm-javac && pnpm test:cdn-runtime && pnpm test:compiler-boundary",
+    "sync:openjdk-tests": "node scripts/sync-openjdk-tests.mjs",
+    "catalog:openjdk-tests": "node scripts/catalog-openjdk-tests.mjs",
+    "typecheck": "tsc --noEmit",
+    "test:contracts": "node --import tsx --test tests/contracts/*.test.ts",
+    "test:compatibility": "node scripts/run-compatibility-suite.mjs",
+    "test:openjdk-campaign": "pnpm build && pnpm build:test-browser && node tests/browser/run-openjdk-campaign.mjs",
+    "test:runtime-profiles": "pnpm build && pnpm build:test-browser && node tests/browser/run-profile-matrix.mjs",
+    "test:lifecycle-stress": "pnpm build && pnpm build:test-browser && node tests/browser/run-lifecycle-stress.mjs",
+    "test:compiler-boundary": "pnpm build && pnpm build:test-browser && node tests/browser/run-compiler-boundary.mjs",
+    "test:teavm-javac": "pnpm verify:teavm-javac && pnpm build && pnpm build:test-browser && node tests/browser/run-teavm-javac.mjs",
+    "test:release": "BROWSERS=chromium,firefox,webkit,webkit-ipad-emulation pnpm test:compatibility",
+    "test:cdn-runtime": "pnpm build && pnpm build:test-browser && TRACEJVM_TEST_OMIT_CONTENT_LENGTH=1 PORT=8877 BROWSERS=chromium CASES=main-arguments node tests/browser/run-matrix.mjs",
+    "test:standalone-release": "pnpm test && pnpm verify:teavm-javac && pnpm build && pnpm verify:package && pnpm test:release && pnpm test:runtime-profiles && pnpm test:lifecycle-stress && pnpm test:compiler-boundary",
+    "measure:runtime-profiles": "pnpm build && pnpm build:test-browser && node tests/browser/measure-profile-memory.mjs",
+    "measure:lifecycle-memory": "pnpm build && pnpm build:test-browser && node tests/browser/measure-lifecycle-memory.mjs",
+    "measure:teavm-compiler": "pnpm verify:teavm-javac && pnpm build && pnpm build:test-browser && node tests/browser/measure-teavm-compiler.mjs",
+    "test:browser": "pnpm build && pnpm build:test-browser && node tests/browser/run-matrix.mjs",
+    "verify:runtime-assets": "node scripts/verify-runtime-assets.mjs",
+    "verify:teavm-javac": "node scripts/teavm-javac-artifacts.mjs verify",
+    "verify:package": "node scripts/verify-package.mjs",
+    "test": "pnpm typecheck && pnpm test:contracts",
+    "prepack": "pnpm build && pnpm verify:package",
+    "prepublishOnly": "pnpm release:check"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "esbuild": "0.27.3",
+    "playwright": "^1.53.2",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.8.2",
+    "wrangler": "4.113.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.22.0",
+  "dependencies": {
+    "effect": "3.22.0",
+    "tar-stream": "3.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

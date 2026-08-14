@@ -1,0 +1,4 @@
+vm/*.inc linguist-language=C
+vm/*.c linguist-language=C
+vm/*.h linguist-language=C
+build/** linguist-vendored

@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.cache/
+/runtime/assets
+engine/bjvm/build-tracecode/
+engine/bjvm/build-tracecode-*/
+engine/bjvm/.idea/
+engine/bjvm/codegen/wasm-opt.cjs
+engine/bjvm/build/bjvm_main.wasm
+tests/browser/app.js
+tests/browser/shared-runtime-app.js
+tests/browser/runtime-host-worker-app.js
+engine/bjvm/test/jdk23.jar
+engine/bjvm/test/test_files/**/*.jar
+reports/
+*.log
+.DS_Store

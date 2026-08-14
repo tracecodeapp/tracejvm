@@ -1,0 +1,139 @@
+{
+  "schema": "tracejvm.runtime-profile-measurement.v1",
+  "javaVersion": "23.0.2+7",
+  "target": "linux-x64-class-library",
+  "notes": [
+    "coldAssetBytes counts the VM Wasm once and all files fetched by a cold profile Worker",
+    "files are already internally compressed JAR or jimage artifacts, so HTTP recompression saves little",
+    "Spring server includes java.desktop for java.beans and introspection; this does not claim GUI support"
+  ],
+  "shared": {
+    "wasm": {
+      "bytes": 944209,
+      "sha256": "4b34dfcdbf49945368264a45f85d7102627441389c503d9004c2b8eac2840108"
+    }
+  },
+  "profiles": {
+    "core": {
+      "modules": [
+        "java.base"
+      ],
+      "files": {
+        "bootJar": {
+          "bytes": 12813895,
+          "sha256": "b8def3c469646375b3e17e4a30e86bf5355c81aa49472b8154653aa2301dbd19"
+        },
+        "compiler": {
+          "bytes": 3261432,
+          "sha256": "ad349a42ef4ec77cea2b89caaf10ad7e28fd87013347fb5558161bbdfbd88edf"
+        },
+        "platformImage": {
+          "bytes": 12077450,
+          "sha256": "4aa01d2eb056b9307b61c4230a7173db84f1fc2283bdae976a7bbb8ca0278964"
+        },
+        "modulePackageMap": {
+          "bytes": 6311,
+          "sha256": "c47b8ef30bd319c09c0684f16732c993bfde56b574ab2ab5493730bd13b86981"
+        },
+        "timezoneDatabase": {
+          "bytes": 101731,
+          "sha256": "87022eb5ae9465d75762de6fb2a668c60d411c1394e500c24651895681228148"
+        }
+      },
+      "coldAssetBytes": 29205028
+    },
+    "server": {
+      "modules": [
+        "java.base",
+        "java.instrument",
+        "java.logging",
+        "java.management",
+        "java.naming",
+        "java.net.http",
+        "java.security.sasl",
+        "java.sql",
+        "java.transaction.xa",
+        "java.xml",
+        "jdk.httpserver",
+        "jdk.management",
+        "jdk.unsupported",
+        "jdk.zipfs"
+      ],
+      "files": {
+        "bootJar": {
+          "bytes": 19516379,
+          "sha256": "8457fe1ad35ac21eb857e81d90e18544e3a403a1f88713086abc4ca5057e29af"
+        },
+        "compiler": {
+          "bytes": 3261432,
+          "sha256": "ad349a42ef4ec77cea2b89caaf10ad7e28fd87013347fb5558161bbdfbd88edf"
+        },
+        "platformImage": {
+          "bytes": 18334327,
+          "sha256": "b0cc85df91d401e00824c429e2e04374c4c4320292032b2b8c3e3ea5abe00c35"
+        },
+        "modulePackageMap": {
+          "bytes": 13563,
+          "sha256": "0b045d7f56e41c16dfe6ee3c7005fb8ec35186cbbc94564aee67ca2a243d14ae"
+        },
+        "timezoneDatabase": {
+          "bytes": 101731,
+          "sha256": "87022eb5ae9465d75762de6fb2a668c60d411c1394e500c24651895681228148"
+        },
+        "loggingConfiguration": {
+          "bytes": 2740,
+          "sha256": "8590633e1e8a7d88ffe74cc04189c5c61b1ed4703180cbc851dcd5575efcce74"
+        }
+      },
+      "coldAssetBytes": 42174381
+    },
+    "spring-server": {
+      "modules": [
+        "java.base",
+        "java.datatransfer",
+        "java.desktop",
+        "java.instrument",
+        "java.logging",
+        "java.management",
+        "java.naming",
+        "java.net.http",
+        "java.prefs",
+        "java.security.sasl",
+        "java.sql",
+        "java.transaction.xa",
+        "java.xml",
+        "jdk.httpserver",
+        "jdk.management",
+        "jdk.unsupported",
+        "jdk.zipfs"
+      ],
+      "files": {
+        "bootJar": {
+          "bytes": 29074250,
+          "sha256": "b4e30d5c4798e4ea5a6b1a9e886fcd0e59aba079f2e4fef3c74d68c0074f7399"
+        },
+        "compiler": {
+          "bytes": 3261432,
+          "sha256": "ad349a42ef4ec77cea2b89caaf10ad7e28fd87013347fb5558161bbdfbd88edf"
+        },
+        "platformImage": {
+          "bytes": 27359960,
+          "sha256": "4dd58a354c93a8bf8c17e5ab4a512cea1f7fcab58a27d19b83b5a42f15c9cd86"
+        },
+        "modulePackageMap": {
+          "bytes": 17483,
+          "sha256": "477a7591e701426a95a8d910917b21a1d38d5f246be95f302470782179397b95"
+        },
+        "timezoneDatabase": {
+          "bytes": 101731,
+          "sha256": "87022eb5ae9465d75762de6fb2a668c60d411c1394e500c24651895681228148"
+        },
+        "loggingConfiguration": {
+          "bytes": 2740,
+          "sha256": "8590633e1e8a7d88ffe74cc04189c5c61b1ed4703180cbc851dcd5575efcce74"
+        }
+      },
+      "coldAssetBytes": 60761805
+    }
+  }
+}

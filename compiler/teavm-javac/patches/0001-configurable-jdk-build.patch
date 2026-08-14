@@ -1,0 +1,65 @@
+diff --git a/compiler/build.gradle b/compiler/build.gradle
+index 4d584e0..89986ae 100644
+--- a/compiler/build.gradle
++++ b/compiler/build.gradle
+@@ -38,6 +38,10 @@ sourceSets {
+     }
+ }
+ 
++tasks.named("compileClasslibEmuJava", JavaCompile) {
++    options.release.set(providers.gradleProperty("tracejvm.jdk.feature").get().toInteger())
++}
++
+ compileJava {
+     options.compilerArgs.addAll("--limit-modules", "java.base")
+ }
+diff --git a/javac/build.gradle b/javac/build.gradle
+index 0b3733d..1ba241c 100644
+--- a/javac/build.gradle
++++ b/javac/build.gradle
+@@ -4,9 +4,11 @@ plugins {
+ }
+ 
+ def revision = providers.gradleProperty("jdk.revision").get()
++def repository = providers.gradleProperty("tracejvm.jdk.repository").get()
++def archiveRoot = providers.gradleProperty("tracejvm.jdk.archive-root").get()
+ 
+ def downloadJDK = tasks.register("downloadJDK", Download) {
+-    src "https://github.com/openjdk/jdk25u/archive/${revision}.zip"
++    src "https://github.com/openjdk/${repository}/archive/${revision}.zip"
+     dest layout.buildDirectory.file("jdk-${revision}.zip")
+     overwrite false
+ }
+@@ -18,7 +20,7 @@ def unpackJDK = tasks.register("unpackJDK", Sync) {
+     exclude "**/module-info.java"
+ }
+ 
+-def baseJDKDir = layout.buildDirectory.dir("jdk/jdk25u-${revision}").get()
++def baseJDKDir = layout.buildDirectory.dir("jdk/${archiveRoot}-${revision}").get()
+ 
+ def compileTools = tasks.register("compileTools", JavaCompile) {
+     dependsOn unpackJDK
+diff --git a/settings.gradle b/settings.gradle
+index 8360979..d6a58c1 100644
+--- a/settings.gradle
++++ b/settings.gradle
+@@ -51,6 +51,8 @@ gradle.allprojects {
+     }
+ }
+ 
++def targetJavaVersion = JavaVersion.toVersion(providers.gradleProperty("tracejvm.jdk.feature").get())
++
+ gradle.afterProject {
+     def java = extensions.findByType(JavaPluginExtension)
+     if (java != null) {
+@@ -59,8 +61,8 @@ gradle.afterProject {
+             toolVersion = extensions.getByType(VersionCatalogsExtension).named("libs")
+                     .findVersion("checkstyle").get().requiredVersion
+         }
+-        java.sourceCompatibility = JavaVersion.VERSION_25
+-        java.targetCompatibility = JavaVersion.VERSION_25
++        java.sourceCompatibility = targetJavaVersion
++        java.targetCompatibility = targetJavaVersion
+     }
+ }
+ 

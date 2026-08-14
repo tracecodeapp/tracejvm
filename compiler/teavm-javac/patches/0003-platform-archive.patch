@@ -1,0 +1,28 @@
+diff --git a/compiler/src/main/java/org/teavm/javac/Compiler.java b/compiler/src/main/java/org/teavm/javac/Compiler.java
+index 4cf540d..9f697ed 100644
+--- a/compiler/src/main/java/org/teavm/javac/Compiler.java
++++ b/compiler/src/main/java/org/teavm/javac/Compiler.java
+@@ -126,6 +126,23 @@ public final class Compiler {
+         }
+     }
+ 
++    @JSExport
++    public void addPlatformJarFile(Int8Array content) throws IOException {
++        try (var input = new ZipInputStream(new ByteArrayInputStream(content.copyToJavaArray()))) {
++            while (true) {
++                var entry = input.getNextEntry();
++                if (entry == null) {
++                    break;
++                }
++                if (entry.isDirectory()) {
++                    continue;
++                }
++                var file = addFile(sdkFiles, entry.getName(), input.readAllBytes());
++                file.isJavaBase = true;
++            }
++        }
++    }
++
+     @JSExport
+     public void setTeaVMClasslib(Int8Array content) throws IOException {
+         try (var input = new ArchiveReader(new ByteArrayInputStream(content.copyToJavaArray()))) {

@@ -1,0 +1,57 @@
+{
+  "schema": "tracejvm.openjdk-release-profile.v1",
+  "id": "openjdk-23-core-browser-v1",
+  "status": "candidate",
+  "java": {
+    "version": "23.0.2+7",
+    "source": "23",
+    "target": "23",
+    "preview": false,
+    "oracle": {
+      "distribution": "Eclipse Temurin",
+      "repository": "https://github.com/openjdk/jdk23u.git",
+      "tag": "jdk-23.0.2+7",
+      "commit": "a13b02ce6f8545b9fce1263f0b5a219b55fb2522"
+    }
+  },
+  "runtimeProfile": "core",
+  "modules": [
+    "java.base"
+  ],
+  "browsers": [
+    "chromium",
+    "firefox",
+    "webkit",
+    "webkit-ipad-emulation"
+  ],
+  "supported": [
+    "ordinary Java source compilation with javac",
+    "Java 23 class-file execution",
+    "public static void main(String[]) entry points",
+    "multi-file and packaged source trees",
+    "program arguments and system properties",
+    "captured standard output and error streams",
+    "in-memory files and class paths supplied by the embedder",
+    "worker-backed cancellation and safe execution isolation"
+  ],
+  "excluded": [
+    "preview language or VM features",
+    "JNI and unimplemented OpenJDK native boundaries",
+    "AWT, Swing, graphics, audio, and desktop integration",
+    "operating-system process creation",
+    "unrestricted host filesystem or network access",
+    "embedder-provided or interactive standard input",
+    "modules outside java.base",
+    "browser capabilities absent from the selected engine"
+  ],
+  "experimentalProfiles": [
+    "server",
+    "spring-server"
+  ],
+  "releaseGate": {
+    "manifest": "compatibility/openjdk/manifest.json",
+    "crossBrowser": true,
+    "requireNoSemanticDefects": true,
+    "requireNoUnclassifiedFailures": true
+  }
+}

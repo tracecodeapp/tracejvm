@@ -23,9 +23,9 @@ networking are interfaces you implement.
 
 **It can** compile and run ordinary Java 23 programs: multi-file source trees,
 packages, program arguments, system properties, captured stdout/stderr,
-classpath JARs, executable JARs, and classfiles you supply directly. Behavior is
-checked against unmodified OpenJDK tests in Chromium, Firefox, WebKit, and
-WebKit under iPad emulation.
+JARs placed on the classpath with an explicit main class, and classfiles you
+supply directly. Behavior is checked against unmodified OpenJDK tests in
+Chromium, Firefox, WebKit, and WebKit under iPad emulation.
 
 **It cannot** do these, and does not pretend to:
 

@@ -158,9 +158,11 @@ Every method also has a typed [Effect](https://effect.website/) counterpart
 
 Serve every release object with the CORS, resource-policy, MIME, and
 immutable-caching headers recorded in `release.json`, the contract written by
-`pnpm prepare:runtime-release`. If you publish the tree to object storage,
-`pnpm check:runtime-release` downloads it and checks the response headers as
-well as the bytes.
+`pnpm prepare:runtime-release`. If you maintain this repository and publish its
+hosted release, `pnpm check:runtime-release` downloads it and checks the response
+headers as well as the bytes. That command is not part of the npm package;
+application integrators should enforce the descriptor in their own deployment
+checks. TraceJVM verifies asset bytes at runtime, not response headers.
 
 The `browser-worker.js` entrypoint also needs the two values under
 `responsePolicy.worker` in that descriptor:
@@ -196,8 +198,8 @@ program would block that thread. Real applications put both in Workers:
 | `TraceJVMCompiler` + `TraceJVMRunnerHost` | Compiler and runners share one Worker you own, and should load the JDK and Wasm once |
 
 Both Worker clients take a `createWorker` factory, so you decide how the Worker
-script is built and served. The simplest option is the prebuilt
-`browser-worker.js` that step 2 already extracted onto your origin:
+script is built and served. When the extracted tree is on the **same origin as
+your application**, the simplest option is its prebuilt `browser-worker.js`:
 
 ```ts
 import {
@@ -225,7 +227,10 @@ cast — the same one the repository's own browser tests use.
 
 If you would rather bundle the Worker yourself, the package also exports the
 same entry point as `@tracecode/tracejvm/worker`; how you turn that into a
-Worker URL is your bundler's business.
+Worker URL is your bundler's business. A Worker constructor cannot load a
+cross-origin entry script. If the runtime assets live on a separate CDN origin,
+bundle this entrypoint or serve a bootstrap Worker from the application origin;
+do not pass the CDN URL directly to `new Worker()`.
 
 Keep one compiler Worker warm across the session and create a runner Worker per
 admitted program. Runners stay independent — separate PIDs, working

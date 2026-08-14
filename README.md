@@ -56,8 +56,8 @@ and the remaining blockers.
 
 ## Quick start
 
-You need Node.js 22+ and a static origin you control. Java is *not* required —
-only for rebuilding the runtime from source.
+You need Node.js 22.15.0 or newer and a static origin you control. Java is *not*
+required — only for rebuilding the runtime from source.
 
 ### 1. Install
 

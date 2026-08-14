@@ -9,7 +9,7 @@ reworking a finished pull request.
 
 ## Setting up
 
-You need Node.js 22 and pnpm 10.22.0.
+You need Node.js 22.15.0 or newer and pnpm 10.22.0.
 
 ```sh
 pnpm install --frozen-lockfile

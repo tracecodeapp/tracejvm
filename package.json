@@ -105,7 +105,7 @@
   "packageManager": "pnpm@10.22.0",
   "dependencies": {
     "effect": "3.22.0",
-    "tar-stream": "3.2.0"
+    "tar-stream": "3.2.1"
   },
   "publishConfig": {
     "access": "public"
